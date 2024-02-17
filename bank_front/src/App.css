@@ -1,0 +1,380 @@
+nav {
+  display: flex;
+  flex:auto;
+  /* Optional: Additional styles for the flex container */
+  /* list-style: none; */
+  /* padding: 0; */
+  /* margin: 0; */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* 최상위 div를 화면 중앙에 배치 */
+div.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 전체 높이를 사용하여 중앙에 배치 */
+  text-align: center; 
+}
+
+/* 이미지 크기 조절 */
+div.card-container img {
+  width: 300px; /* 원하는 너비로 조절 */
+  height: auto; /* 비율 유지 */
+  margin-bottom: 20px;
+}
+
+/* 버튼 스타일링 */
+div.card-container button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  background-color: #444444;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+div.card-container button:hover {
+  background-color: #444444;
+}
+
+/* 확인 메세지 css */
+.confirm-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-modal-content {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.confirm-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.back {
+  position: relative;  /* position을 static이 아닌 값으로 설정 */
+  z-index: -1;          /* z-index 값을 지정 */
+}
+
+.confirm-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* 입금 */
+.deposit-container {
+  width: 300px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white; 
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  background-color: white;
+}
+
+.input-field:focus {
+  border-color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button {
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* 배너 컴포넌트 */
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px; /* 3D 회전 효과 강조 */
+}
+
+.banner-image {
+  transition: all 0.5s;
+  opacity: 0.1;
+  transform: rotateY(70deg) scale(0.6);
+  flex: 0 0 auto; /* Flexbox 크기 조절 */
+  max-width: 20%; /* 작게 표시되는 배너의 크기 */
+}
+
+.banner-image.active {
+  opacity: 1;
+  transform: rotateY(0deg) scale(1);
+  max-width: 60%; /* 가운데 활성화된 배너의 크기 */
+}
+
+
+.button {
+  position: absolute;
+  top: 120%;
+  font: bold 1.25rem/1 poppins;
+  color: #ffffff;
+  background: #2B2D2F;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 4px;
+
+  padding: 5px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50vh;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.containerBox{
+  width: 400px;
+
+  font-family: Consolas, monospace;
+  /* font-size: 16px; */
+  padding: 15px 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #444444;
+  border: 1px solid #444444;
+
+  margin: 10px;
+  /* select box 설정 */
+}
+
+.containerBox button{
+    font: bold 1.25rem/1 poppins;
+    color: #ffffff;
+    background: #2B2D2F;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.selectdiv {
+  position: relative;
+  /*Don't really need this just for demo styling*/
+  
+  float: left;
+  min-width: 200px;
+  /* margin: 50px 33%; */
+}
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+  display: none;
+}
+
+.selectdiv select {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+  
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 50px;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+.menu {
+  display: flex;
+  /* Optional: Additional styles for the flex container */
+  list-style: none; /* Remove default list styles */
+  padding: 0;
+  margin: 0;
+}
+
+.accountHistory {
+  width: 0px;
+  height: 0px;
+}
+
+
+
+.childMenuBox{
+  font-family: 'NotoSans','Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  list-style: none;
+  top: 15px;
+  height: 30px;
+  width: 140px;
+  left: -56px;
+}
+
+.MenuBox {
+  /* Apply flex properties to list items */
+  align-items: center; /* Align items vertically within each list item */
+  justify-content: center; /* Center the content horizontally within each list item */
+  /* Optional: Additional styles for each list item */
+  padding: 30px;
+  font-size: 24px;
+
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,sans-serif!important;
+  font-weight: 700;
+  line-height: 22px;
+  cursor: pointer;
+  user-select: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: var(--element-el-60);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.title{
+  /* Apply flex properties to list items */
+  align-items: center; /* Align items vertically within each list item */
+  justify-content: center; /* Center the content horizontally within each list item */
+  /* Optional: Additional styles for each list item */
+  padding: 30px;
+  font-size: 24px;
+
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,sans-serif!important;
+  font-weight: 700;
+  line-height: 22px;
+  cursor: pointer;
+  user-select: none;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: var(--element-el-60);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.menuContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.ChildMenu {
+  font-family: Consolas, monospace;
+  /* font-size: 16px; */
+  padding: 15px 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  position: absolute;
+  border: 1px solid #444444;
+} 
+
+.loginButton {
+  font-family: 'NotoSans','Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  color: #333;
+  letter-spacing: -1px;
+  cursor: default !important;
+
+  padding: 20px;
+  font-size: 15px;
+  line-height: 100%;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin-left: 0;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+  background-size: contain;
+
+  margin-left: auto;
+
+}
+
+.home{
+  font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,sans-serif!important;
+  padding: 10px;
+  color: #333;
+  font-weight: 700;
+  line-height: 22px;
+  font-size: 20px;
+  margin-right: auto;
+}
